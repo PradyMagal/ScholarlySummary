@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput, ScrollView, SafeAreaView, Alert } fr
 import { Card, Button, Icon } from '@rneui/themed';
 
 export default function App() {
+  console.log("Freaky Mode Activated 👅")
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.mainText}>Welcome,</Text>
