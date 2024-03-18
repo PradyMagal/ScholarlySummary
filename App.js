@@ -1,9 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, ScrollView, SafeAreaView, Alert } from 'react-native';
 import { Card, Button, Icon } from '@rneui/themed';
-
+async function makeCall(searchTerm){
+  console.log("WAhh")
+  var response = await fetch(
+      "https://t4jewn5cay3zj7ld6e3y2qe54q0zktgv.lambda-url.us-west-1.on.aws/",
+      {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({"terms":searchTerm})
+          
+      },
+      
+      )
+      console.log("done w fetch")
+      console.log(response)
+      let termsGen = await response.json()
+      console.log(termsGen)
+}
 export default function App() {
-  console.log("Freaky Mode Activated 👅")
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.mainText}>Welcome,</Text>
@@ -15,9 +32,7 @@ export default function App() {
       <Text style={styles.summaryText}>Summary of Article here, blah blah long ass text</Text>
       <Text style={styles.cSource}>Source</Text>
       </Card>
-      {/* <ScrollView style={styles.scrollView}>
-        <Text>test</Text>
-      </ScrollView> */}
+  
       <Text style={styles.typeText}>Type in up to 5 topics you are interested in and we will find articles based on those (Don't worry about punctuation, we got you)</Text>
       <TextInput style={styles.scrollView}
       editable
@@ -28,7 +43,7 @@ export default function App() {
       style = {styles.subButton}
         title="Find me an Article"
         color="#f194ff"
-        onPress={() => Alert.alert('Button with adjusted color pressed')}
+        onPress={() => makeCall("cars,biology")}
       />
       <StatusBar style="auto" />
     </SafeAreaView>
