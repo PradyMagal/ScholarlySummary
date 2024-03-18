@@ -1,5 +1,5 @@
 # Scholarly Summary
-## Use AI To Summarize apps tailored to you *
+## Use AI To Summarize apps tailored to you
 _Screenshots coming soon, Available for iOS only April 2nd_
 
 ## Scholarly Article Search and Summarization with React Native
